@@ -16,6 +16,6 @@ extern const uint32_t font_meter_large_height;
 extern const uint8_t font_meter_large_widths[96];
 extern const uint8_t font_meter_large_sizes[96];
 extern const uint16_t font_meter_large_offsets[96];
-extern const uint8_t font_meter_large_pixdata[1745];
+extern const uint8_t font_meter_large_pixdata[1824];
 
 #endif // __FONT_METER_LARGE_H__

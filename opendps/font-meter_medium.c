@@ -3,7 +3,7 @@
 #include "font-meter_medium.h"
 
 const uint32_t font_meter_medium_height = 17;
-const uint8_t font_meter_medium_pixdata[444] = {
+const uint8_t font_meter_medium_pixdata[466] = {
   /* '0', offset=0 */
   0xe0, 0x0b, 0xf8, 0x3f, 0x7c, 0x7c, 0x3d, 0xb4, 0x2e, 0xf4, 0x1e, 0xf0, 0x1e, 0xf0, 0x1e, 0xf0,
   0x1e, 0xf0, 0x1e, 0xf0, 0x1e, 0xf0, 0x1e, 0xf0, 0x2e, 0xf4, 0x3d, 0xb4, 0x7c, 0x7c, 0xf8, 0x3f,
@@ -54,11 +54,14 @@ const uint8_t font_meter_medium_pixdata[444] = {
   0xc3, 0x02, 0xc0, 0xc3, 0x03, 0xd0, 0x82, 0x07, 0xe0, 0x41, 0x0b, 0xf0, 0x00, 0x0f, 0xf0, 0x00,
   0x0f, 0xf4, 0xff, 0x1f, 0xf8, 0xff, 0x2f, 0x7c, 0x00, 0x3d, 0x3c, 0x00, 0x3c, 0x3c, 0x00, 0x7c,
   0x2d, 0x00, 0x78,
+  /* '-', offset=444 */
+  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xf4, 0xdf, 0x3f, 0x00, 0x00,
+  0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
 };
 
 const uint8_t font_meter_medium_widths[96] = {
      5u,    0u,    0u,    0u,    0u,    0u,    0u,    0u,
-     0u,    0u,    0u,    0u,    0u,    0u,    3u,    0u,
+     0u,    0u,    0u,    0u,    0u,    5u,    3u,    0u,
      8u,    5u,    8u,    8u,    9u,    8u,    8u,    8u,
      8u,    8u,    0u,    0u,    0u,    0u,    0u,    0u,
      0u,   12u,    0u,    0u,    0u,    0u,    0u,    0u,
@@ -73,7 +76,7 @@ const uint8_t font_meter_medium_widths[96] = {
 
 const uint8_t font_meter_medium_sizes[96] = {
      0u,    0u,    0u,    0u,    0u,    0u,    0u,    0u,
-     0u,    0u,    0u,    0u,    0u,    0u,   13u,    0u,
+     0u,    0u,    0u,    0u,    0u,   22u,   13u,    0u,
     34u,   22u,   34u,   34u,   39u,   34u,   34u,   34u,
     34u,   34u,    0u,    0u,    0u,    0u,    0u,    0u,
      0u,   51u,    0u,    0u,    0u,    0u,    0u,    0u,
@@ -88,7 +91,7 @@ const uint8_t font_meter_medium_sizes[96] = {
 
 const uint16_t font_meter_medium_offsets[96] = {
      0u,    0u,    0u,    0u,    0u,    0u,    0u,    0u,
-     0u,    0u,    0u,    0u,    0u,    0u,  333u,    0u,
+     0u,    0u,    0u,    0u,    0u,  444u,  333u,    0u,
      0u,   34u,   56u,   90u,  124u,  163u,  197u,  231u,
    265u,  299u,    0u,    0u,    0u,    0u,    0u,    0u,
      0u,  393u,    0u,    0u,    0u,    0u,    0u,    0u,

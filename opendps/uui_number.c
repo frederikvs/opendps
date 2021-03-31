@@ -24,6 +24,7 @@
 
 #include <stdint.h>
 #include <stdbool.h>
+#include <stdlib.h>
 #include "my_assert.h"
 #include "uui_number.h"
 #include "tft.h"
@@ -138,6 +139,9 @@ static uint32_t number_draw_width(ui_item_t *_item)
 
     /** Start printing from left to right */
 
+    /* sign */
+    total_width += digit_w + spacing;
+
     /** Digits before the decimal point */
     for (uint32_t i = item->num_digits - 1; i < item->num_digits; --i) {
         total_width += digit_w + spacing;
@@ -165,6 +169,7 @@ static uint32_t number_draw_width(ui_item_t *_item)
         case unit_hertz:
             total_width += 2*FONT_FULL_SMALL_MAX_GLYPH_WIDTH;
             break;
+
         default:
             assert(0);
     }
@@ -233,6 +238,15 @@ static void number_draw(ui_item_t *_item)
     if (item->alignment == ui_text_right_aligned)
         xpos -= number_draw_width(_item);
 
+    /** Draw the minus sign if necessary */
+    if (item->value < 0) {
+        tft_putch(item->font_size, '-', xpos, _item->y, digit_w, h, color, false);
+        xpos += digit_w + spacing;
+    } else {
+        tft_fill(xpos, _item->y, digit_w, h, BLACK);
+        xpos += digit_w + spacing;
+    }
+
     /** Start printing from left to right */
     for (uint8_t place = item->num_digits; place > 0; place--) {
         /* Example value of 1000 with 5,2:
@@ -247,7 +261,7 @@ static void number_draw(ui_item_t *_item)
         // this place value (1 = 1, 2 = 10, 3 = 100, etc., for si_prefix = 0)
         int32_t power = my_pow(10, (item->si_prefix * -1) + (place - 1));
 
-        uint8_t digit = (item->value / power) % 10;
+        uint8_t digit = (abs(item->value) / power) % 10;
 
         // digit selected
         bool highlight = _item->has_focus && item->cur_digit == cur_digit;
@@ -265,7 +279,7 @@ static void number_draw(ui_item_t *_item)
         //   value >= this place's min value (ie. digit's power)
         //   in one's place (ensuring 0.xxx has leading 0)
         //   or item has focus (ensures all digits are drawn when focused)
-        if (item->value >= power || place == 1 || _item->has_focus) {
+        if (abs(item->value) >= power || place == 1 || _item->has_focus) {
             // ASCII '0' plus digit value for digit ascii offset
             tft_putch(item->font_size, '0' + digit, xpos, _item->y, digit_w, h, color, highlight);
         } else {
@@ -286,7 +300,7 @@ static void number_draw(ui_item_t *_item)
     cur_digit = item->num_decimals - 1;
     for (uint32_t i = 0; i < item->num_decimals; ++i) {
         bool highlight = _item->has_focus && item->cur_digit == cur_digit;
-        uint8_t digit = item->value / my_pow(10, (item->si_prefix * -1) -1 - i) % 10;
+        uint8_t digit = abs(item->value) / my_pow(10, (item->si_prefix * -1) -1 - i) % 10;
         if (spacing > 1) /** Dont frame tiny fonts */
         {
             if (highlight) /** Draw an extra pixel wide border around the highlighted item */

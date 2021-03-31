@@ -3,7 +3,7 @@
 #include "font-meter_small.h"
 
 const uint32_t font_meter_small_height = 12;
-const uint8_t font_meter_small_pixdata[234] = {
+const uint8_t font_meter_small_pixdata[246] = {
   /* '0', offset=0 */
   0xf8, 0xd1, 0x34, 0x0f, 0xb7, 0xb0, 0x0b, 0xbb, 0xf0, 0x0b, 0xbf, 0xb0, 0x0b, 0xfb, 0x70, 0x4d,
   0x83, 0x1f,
@@ -41,11 +41,13 @@ const uint8_t font_meter_small_pixdata[234] = {
   /* 'A', offset=207 */
   0x80, 0x0b, 0x00, 0x3f, 0x00, 0xec, 0x01, 0x38, 0x0b, 0xb0, 0x38, 0xc0, 0xd1, 0x40, 0x03, 0x07,
   0x0e, 0x2c, 0xfc, 0xff, 0x70, 0x40, 0xd3, 0x00, 0x9c, 0x03, 0xb0,
+  /* '-', offset=234 */
+  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xfe, 0x00, 0x00, 0x00, 0x00, 0x00,
 };
 
 const uint8_t font_meter_small_widths[96] = {
      4u,    0u,    0u,    0u,    0u,    0u,    0u,    0u,
-     0u,    0u,    0u,    0u,    0u,    0u,    2u,    0u,
+     0u,    0u,    0u,    0u,    0u,    4u,    2u,    0u,
      6u,    4u,    6u,    6u,    6u,    6u,    6u,    6u,
      6u,    6u,    0u,    0u,    0u,    0u,    0u,    0u,
      0u,    9u,    0u,    0u,    0u,    0u,    0u,    0u,
@@ -60,7 +62,7 @@ const uint8_t font_meter_small_widths[96] = {
 
 const uint8_t font_meter_small_sizes[96] = {
      0u,    0u,    0u,    0u,    0u,    0u,    0u,    0u,
-     0u,    0u,    0u,    0u,    0u,    0u,    6u,    0u,
+     0u,    0u,    0u,    0u,    0u,   12u,    6u,    0u,
     18u,   12u,   18u,   18u,   18u,   18u,   18u,   18u,
     18u,   18u,    0u,    0u,    0u,    0u,    0u,    0u,
      0u,   27u,    0u,    0u,    0u,    0u,    0u,    0u,
@@ -75,7 +77,7 @@ const uint8_t font_meter_small_sizes[96] = {
 
 const uint16_t font_meter_small_offsets[96] = {
      0u,    0u,    0u,    0u,    0u,    0u,    0u,    0u,
-     0u,    0u,    0u,    0u,    0u,    0u,  174u,    0u,
+     0u,    0u,    0u,    0u,    0u,  234u,  174u,    0u,
      0u,   18u,   30u,   48u,   66u,   84u,  102u,  120u,
    138u,  156u,    0u,    0u,    0u,    0u,    0u,    0u,
      0u,  207u,    0u,    0u,    0u,    0u,    0u,    0u,
