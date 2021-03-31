@@ -268,4 +268,6 @@ endif
 
 .PHONY: images clean stylecheck styleclean elf bin hex srec list
 
+$(OBJS):Makefile
+
 -include $(OBJS:.o=.d)
